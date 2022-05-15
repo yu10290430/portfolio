@@ -1,0 +1,20 @@
+current directory: /Users/a0000/Desktop/myapp/vendor/bundle/ruby/3.0.0/gems/bootsnap-1.11.1/ext/bootsnap
+/Users/a0000/.rbenv/versions/3.0.3/bin/ruby -I /Users/a0000/.rbenv/versions/3.0.3/lib/ruby/3.0.0 -r ./siteconf20220424-95193-x8e2jk.rb extconf.rb
+Ignoring bootsnap-1.11.1 because its extensions are not built. Try: gem pristine bootsnap --version 1.11.1
+Ignoring ffi-1.15.5 because its extensions are not built. Try: gem pristine ffi --version 1.15.5
+Ignoring mysql2-0.5.3 because its extensions are not built. Try: gem pristine mysql2 --version 0.5.3
+Ignoring puma-5.6.4 because its extensions are not built. Try: gem pristine puma --version 5.6.4
+Ignoring sassc-2.4.0 because its extensions are not built. Try: gem pristine sassc --version 2.4.0
+creating Makefile
+
+current directory: /Users/a0000/Desktop/myapp/vendor/bundle/ruby/3.0.0/gems/bootsnap-1.11.1/ext/bootsnap
+make DESTDIR\= clean
+
+current directory: /Users/a0000/Desktop/myapp/vendor/bundle/ruby/3.0.0/gems/bootsnap-1.11.1/ext/bootsnap
+make DESTDIR\=
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+
+current directory: /Users/a0000/Desktop/myapp/vendor/bundle/ruby/3.0.0/gems/bootsnap-1.11.1/ext/bootsnap
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20220424-95193-ixixu9/bootsnap

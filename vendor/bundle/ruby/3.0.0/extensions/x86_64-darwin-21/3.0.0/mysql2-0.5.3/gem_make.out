@@ -1,0 +1,62 @@
+current directory: /Users/a0000/Desktop/myapp/vendor/bundle/ruby/3.0.0/gems/mysql2-0.5.3/ext/mysql2
+/Users/a0000/.rbenv/versions/3.0.3/bin/ruby -I /Users/a0000/.rbenv/versions/3.0.3/lib/ruby/3.0.0 -r ./siteconf20220425-4574-pvedg2.rb extconf.rb
+Ignoring mysql2-0.5.3 because its extensions are not built. Try: gem pristine mysql2 --version 0.5.3
+checking for rb_absint_size()... yes
+checking for rb_absint_singlebit_p()... yes
+checking for rb_wait_for_single_fd()... yes
+-----
+Using mysql_config at /usr/local/bin/mysql_config
+-----
+checking for mysql.h... yes
+checking for errmsg.h... yes
+checking for SSL_MODE_DISABLED in mysql.h... yes
+checking for SSL_MODE_PREFERRED in mysql.h... yes
+checking for SSL_MODE_REQUIRED in mysql.h... yes
+checking for SSL_MODE_VERIFY_CA in mysql.h... yes
+checking for SSL_MODE_VERIFY_IDENTITY in mysql.h... yes
+checking for MYSQL.net.vio in mysql.h... yes
+checking for MYSQL.net.pvio in mysql.h... no
+checking for MYSQL_ENABLE_CLEARTEXT_PLUGIN in mysql.h... yes
+checking for SERVER_QUERY_NO_GOOD_INDEX_USED in mysql.h... yes
+checking for SERVER_QUERY_NO_INDEX_USED in mysql.h... yes
+checking for SERVER_QUERY_WAS_SLOW in mysql.h... yes
+checking for MYSQL_OPTION_MULTI_STATEMENTS_ON in mysql.h... yes
+checking for MYSQL_OPTION_MULTI_STATEMENTS_OFF in mysql.h... yes
+checking for my_bool in mysql.h... no
+-----
+Don't know how to set rpath on your system, if MySQL libraries are not in path mysql2 may not load
+-----
+-----
+Setting libpath to /usr/local/Cellar/mysql/8.0.28_1/lib
+-----
+creating Makefile
+
+current directory: /Users/a0000/Desktop/myapp/vendor/bundle/ruby/3.0.0/gems/mysql2-0.5.3/ext/mysql2
+make DESTDIR\= clean
+
+current directory: /Users/a0000/Desktop/myapp/vendor/bundle/ruby/3.0.0/gems/mysql2-0.5.3/ext/mysql2
+make DESTDIR\=
+compiling client.c
+client.c:787:14: warning: incompatible function pointer types passing 'VALUE (void *)' (aka 'unsigned long (void *)') to parameter of type 'VALUE (*)(VALUE)' (aka 'unsigned long (*)(unsigned long)') [-Wincompatible-function-pointer-types]
+  rb_rescue2(do_send_query, (VALUE)&args, disconnect_and_raise, self, rb_eException, (VALUE)0);
+             ^~~~~~~~~~~~~
+/Users/a0000/.rbenv/versions/3.0.3/include/ruby-3.0.0/ruby/internal/iterator.h:51:25: note: passing argument to parameter here
+VALUE rb_rescue2(VALUE(*)(VALUE),VALUE,VALUE(*)(VALUE,VALUE),VALUE,...);
+                        ^
+client.c:795:16: warning: incompatible function pointer types passing 'VALUE (void *)' (aka 'unsigned long (void *)') to parameter of type 'VALUE (*)(VALUE)' (aka 'unsigned long (*)(unsigned long)') [-Wincompatible-function-pointer-types]
+    rb_rescue2(do_query, (VALUE)&async_args, disconnect_and_raise, self, rb_eException, (VALUE)0);
+               ^~~~~~~~
+/Users/a0000/.rbenv/versions/3.0.3/include/ruby-3.0.0/ruby/internal/iterator.h:51:25: note: passing argument to parameter here
+VALUE rb_rescue2(VALUE(*)(VALUE),VALUE,VALUE(*)(VALUE,VALUE),VALUE,...);
+                        ^
+2 warnings generated.
+compiling infile.c
+compiling mysql2_ext.c
+compiling result.c
+compiling statement.c
+linking shared-object mysql2/mysql2.bundle
+ld: library not found for -lssl
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make: *** [mysql2.bundle] Error 1
+
+make failed, exit code 2

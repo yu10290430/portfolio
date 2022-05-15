@@ -1,0 +1,61 @@
+<main class="main_center">
+  <div class="row profile">
+    <div class="class="col-lg-5 col-xs-12 side_bar">
+      <div class="user_img">
+        <%= image_tag url_for(@user.avatar), size: '100x100' %>
+      </div>
+      <div class="row icon_box">
+        <div class="icon">
+          <%= link_to user_posts_user_path(@user) do %>
+            <p><i class="fa-solid fa-square-plus fa-2x"></i></p>
+            <p>投稿</p>
+          <% end %>
+        </div>
+        <div class="icon">
+          <%= link_to favorites_user_path(@user) do %>
+            <p><i class="fa-solid fa-thumbs-up fa-2x"></i></p>
+            <p>いいね</p>
+          <% end %>
+        </div>
+        <div class="icon">
+          <%= link_to followings_user_path(@user) do %>
+            <p><i class="fa-solid fa-user-check fa-2x"></i></p>
+            <p>フォロー中</p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-7 col-xs-12 profile_field">
+      <table class="user_table">
+        <tr>
+          <th>
+            <p>ユーザー名</p>
+          </th>
+          <td> <%= @user.name %> </td>
+        </tr>
+        <% if @user.id == current_user.id %>
+          <tr>
+            <th>
+              <p>メールアドレス</p>
+            </th>
+            <td> <%= @user.email %> </td>
+          </tr>
+        <% end %>
+        <tr>
+          <th>
+            <p>自己紹介</p>
+          </th>
+          <td> <%= @user.introduction %> </td>
+        </tr>
+      </table>
+      <div class="btn_box">
+        <% if @user.id == current_user.id %>
+          <%= link_to 'プロフィール編集', edit_user_path(@user.id), {class: "round_btn_grey"} %>
+        <% end %>
+        <% if current_user.id != @user.id %>
+          <%= render 'shared/follow_button', user: @user %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</main>

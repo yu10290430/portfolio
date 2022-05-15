@@ -1,5 +1,19 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  devise_for :users
+  resources :users, only: [:show, :edit, :update, :destroy] do
+    member do
+      get :favorites
+      get :user_posts
+      get :followings
+      get :followers
+    end
+  end
+  get 'boards/search'
+  resources :boards do
+    resource :favorites, only: [:create, :destroy]
+  end
+  resources :relationships, only: [:create, :destroy]
+  root to: 'boards#index'
 end

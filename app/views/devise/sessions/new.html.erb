@@ -1,0 +1,17 @@
+<main class="main_center">
+  <h2>ログイン</h2>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="field">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス" %>
+    </div>
+    <div class="field">
+      <%= f.password_field :password, autocomplete: "current-password", placeholder: "パスワード" %>
+    </div>
+    <div class="actions">
+      <%= f.submit "ログイン" %>
+    </div>
+  <% end %>
+  <div class="link_box">
+    <%= render "devise/shared/links", {class: "round_btn_grey"} %>
+  </div>
+</main>

@@ -1,0 +1,32 @@
+<main class="main_center">
+  <h2>パスワード編集</h2>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="field">
+      <div class="icon">
+        <%= image_tag url_for(current_user.avatar), size: '50x50' %>
+      </div>
+    </div>
+
+    <div class="field">
+      <%= f.label :password, '【変更後のパスワード】' %><br>
+      <%= f.password_field :password, autocomplete: "new-password", placeholder: "変更後パスワード（変更する場合のみ6文字以上で入力)" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation, '【パスワード確認】' %><br>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワード確認用（変更する場合のみ入力)" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :current_password, '【現在のパスワード】' %><span class="mark">変更時必須</span><br>
+      <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "現在のパスワード" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "更新" %>
+    </div>
+  <% end %>
+  <%= link_to "戻る", :back, {class: "round_btn_grey"} %>
+</main>

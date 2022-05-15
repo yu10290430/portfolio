@@ -1,0 +1,29 @@
+current directory: /Users/a0000/Desktop/myapp/vendor/bundle/ruby/3.0.0/gems/byebug-11.1.3/ext/byebug
+/Users/a0000/.rbenv/versions/3.0.3/bin/ruby -I /Users/a0000/.rbenv/versions/3.0.3/lib/ruby/3.0.0 -r ./siteconf20220424-95193-w8t4bz.rb extconf.rb
+Ignoring bcrypt-3.1.17 because its extensions are not built. Try: gem pristine bcrypt --version 3.1.17
+Ignoring bootsnap-1.11.1 because its extensions are not built. Try: gem pristine bootsnap --version 1.11.1
+Ignoring byebug-11.1.3 because its extensions are not built. Try: gem pristine byebug --version 11.1.3
+Ignoring ffi-1.15.5 because its extensions are not built. Try: gem pristine ffi --version 1.15.5
+Ignoring msgpack-1.5.1 because its extensions are not built. Try: gem pristine msgpack --version 1.5.1
+Ignoring mysql2-0.5.3 because its extensions are not built. Try: gem pristine mysql2 --version 0.5.3
+Ignoring nio4r-2.5.8 because its extensions are not built. Try: gem pristine nio4r --version 2.5.8
+Ignoring puma-5.6.4 because its extensions are not built. Try: gem pristine puma --version 5.6.4
+Ignoring sassc-2.4.0 because its extensions are not built. Try: gem pristine sassc --version 2.4.0
+Ignoring websocket-driver-0.7.5 because its extensions are not built. Try: gem pristine websocket-driver --version 0.7.5
+creating Makefile
+
+current directory: /Users/a0000/Desktop/myapp/vendor/bundle/ruby/3.0.0/gems/byebug-11.1.3/ext/byebug
+make DESTDIR\= clean
+
+current directory: /Users/a0000/Desktop/myapp/vendor/bundle/ruby/3.0.0/gems/byebug-11.1.3/ext/byebug
+make DESTDIR\=
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.bundle
+
+current directory: /Users/a0000/Desktop/myapp/vendor/bundle/ruby/3.0.0/gems/byebug-11.1.3/ext/byebug
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 byebug.bundle ./.gem.20220424-95193-hmx0w4/byebug

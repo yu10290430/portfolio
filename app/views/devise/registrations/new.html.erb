@@ -1,0 +1,28 @@
+<main class="main_center">
+  <h2>新規登録</h2>
+  <div class="field_box">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="field">
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "ユーザー名" %>
+      </div>
+      <div class="field">
+        <%= f.email_field :email, autocomplete: "email", placeholder: "メールアドレス" %>
+      </div>
+      <div class="field">
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード（６文字以上）" %>
+      </div>
+      <div class="field">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワード確認" %>
+      </div>
+      <div class="field">
+        <%= f.label :avater, '〜プロフィール画像〜' %><br>
+        <%= f.file_field :avatar %>
+      </div>
+      <div class="actions">
+        <%= f.submit "新規登録" %>
+      </div>
+    <% end %>
+    <%= render "devise/shared/links" %>
+  </div>
+</main>

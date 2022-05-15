@@ -1,0 +1,56 @@
+<main class="main_center">
+  <h2>投稿編集</h2>
+  <%= form_with model:@board, url: board_path(@board), local: true do |f| %>
+    <table class="edit_table">
+      <tr>
+        <th><%= f.label :title, "タイトル" %></th>
+        <td><%= f.text_field :title %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :address, "釣り場" %></th>
+        <td><%= f.text_field :address %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :weather, "天気" %></th>
+        <td>
+          <%= f.select :weather, {'晴れ': 1, '曇り': 2, '雨': 3}, { class: 'form-control' , required: true } %>
+        </td>
+      </tr>
+      <tr>
+        <th><%= f.label :kind, "釣種" %></th>
+        <td><%= f.text_field :kind %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :date ,"日付" %></th>
+        <td><%= f.date_field :date %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :tide, "潮" %></th>
+        <td>
+          <%= f.select :tide, {'大潮': 1, '中潮': 2, '小潮': 3}, { class: 'form-control' , required: true } %>
+        </td>
+      </tr>
+      <tr>
+        <th><%= f.label :result ,"釣果" %></th>
+        <td><%= f.text_field :result %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :body ,"テキスト" %></th>
+        <td><%= f.text_area :body %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :images ,"画像" %></th>
+        <td><%= f.file_field :images, multiple: true %></td>
+      </tr>
+    </table>
+    <div>
+      <ul>
+      <li><%= f.submit "更新する", class: "btn_blue" %></li>
+      </ul>
+    </div>
+  <% end %>
+  <div class="link_box">
+    <%= link_to "投稿削除", @board, method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn_red" %>
+    <%= link_to "投稿詳細に戻る", board_path(@board.id), {class: "round_btn_grey"} %>
+  </div>
+</main>

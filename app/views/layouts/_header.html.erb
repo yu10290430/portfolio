@@ -1,0 +1,54 @@
+<header>
+  <div class= "header_logo">
+    <h2><%= link_to 'Fishing Share', root_path %></h2>
+  </div>
+  <nav>
+    <% if user_signed_in? %>
+      <%= link_to "HOME", root_path %>
+      <%= link_to "投稿一覧", boards_search_path %>
+      <%= link_to "設定",  edit_user_path(current_user.id) %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      <%= link_to user_path(current_user.id) do %>
+      <%= image_tag url_for(current_user.avatar), size: '40x40' %>
+      <%= current_user.name %>
+      <% end %>
+    <% else %>
+      <%= link_to "新規登録", new_user_registration_path %>
+      <%= link_to "ログイン", new_user_session_path %>
+    <% end %>
+  </nav>
+  <div class="hamburger_menu">
+    <input type="checkbox" id="menu_btn_check">
+    <label for="menu_btn_check" class="menu_btn"><span></span></label>
+    <div class="menu_content">
+      <ul>
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to user_path(current_user.id) do %>
+              <%= image_tag url_for(current_user.avatar), size: '50x50' %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "HOME", root_path %>
+          </li>
+          <li>
+            <%= link_to "投稿一覧", boards_search_path %>
+          </li>
+          <li>
+            <%= link_to '設定', edit_user_path(current_user.id) %>
+          </li>
+          <li>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to "新規登録", new_user_registration_path %>
+          </li>
+          <li>
+            <%= link_to "ログイン", new_user_session_path %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</header>

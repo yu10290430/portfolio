@@ -1,0 +1,52 @@
+<div class="new_post_title">
+  <h5>新規投稿</h5>
+</div>
+<%= form_with model: board do |f| %>
+  <table>
+    <tr>
+      <th><%= f.label :title, "タイトル" %></th>
+      <td><%= f.text_field :title, placeholder: "20字以内" %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :address, "釣り場" %></th>
+      <td><%= f.text_field :address, placeholder: "住所を入力" %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :weather, "天気" %></th>
+      <td>
+        <%= f.select :weather, ["晴れ", "曇り", "雨"], { include_blank: "選択してください"}, { class: "form-control" , required: true } %>
+      </td>
+    </tr>
+    <tr>
+      <th><%= f.label :kind, "釣種" %></th>
+      <td><%= f.text_field :kind, placeholder: "(例)エギング、ウキ釣り等" %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :date ,"日付" %></th>
+      <td><%= f.date_field :date %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :tide, "潮" %></th>
+      <td>
+        <%= f.select :tide, ["大潮", "中潮", "小潮", "不明"], { include_blank: "選択してください"}, { class: "form-control" , required: true } %>
+      </td>
+    </tr>
+    <tr>
+      <th><%= f.label :result ,"釣果" %></th>
+      <td><%= f.text_field :result, placeholder: "数値のみ入力" %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :body ,"テキスト" %></th>
+      <td><%= f.text_area :body, placeholder: "200字以内" %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :images ,"画像" %></th>
+      <td><%= f.file_field :images, multiple: true %></td>
+    </tr>
+  </table>
+  <div class="new_submit">
+    <ul>
+      <li><%= f.submit "投稿する", class: "btn_blue" %></li>
+    </ul>
+  </div>
+<% end %>

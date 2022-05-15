@@ -1,0 +1,40 @@
+current directory: /Users/a0000/Desktop/myapp/vendor/bundle/ruby/3.0.0/gems/msgpack-1.5.1/ext/msgpack
+/Users/a0000/.rbenv/versions/3.0.3/bin/ruby -I /Users/a0000/.rbenv/versions/3.0.3/lib/ruby/3.0.0 -r ./siteconf20220424-95193-176anu.rb extconf.rb
+Ignoring bcrypt-3.1.17 because its extensions are not built. Try: gem pristine bcrypt --version 3.1.17
+Ignoring bootsnap-1.11.1 because its extensions are not built. Try: gem pristine bootsnap --version 1.11.1
+Ignoring byebug-11.1.3 because its extensions are not built. Try: gem pristine byebug --version 11.1.3
+Ignoring ffi-1.15.5 because its extensions are not built. Try: gem pristine ffi --version 1.15.5
+Ignoring msgpack-1.5.1 because its extensions are not built. Try: gem pristine msgpack --version 1.5.1
+Ignoring mysql2-0.5.3 because its extensions are not built. Try: gem pristine mysql2 --version 0.5.3
+Ignoring nio4r-2.5.8 because its extensions are not built. Try: gem pristine nio4r --version 2.5.8
+Ignoring puma-5.6.4 because its extensions are not built. Try: gem pristine puma --version 5.6.4
+Ignoring racc-1.6.0 because its extensions are not built. Try: gem pristine racc --version 1.6.0
+Ignoring sassc-2.4.0 because its extensions are not built. Try: gem pristine sassc --version 2.4.0
+Ignoring websocket-driver-0.7.5 because its extensions are not built. Try: gem pristine websocket-driver --version 0.7.5
+checking for ruby/st.h... yes
+checking for st.h... no
+checking for rb_enc_interned_str() in ruby.h... yes
+creating Makefile
+
+current directory: /Users/a0000/Desktop/myapp/vendor/bundle/ruby/3.0.0/gems/msgpack-1.5.1/ext/msgpack
+make DESTDIR\= clean
+
+current directory: /Users/a0000/Desktop/myapp/vendor/bundle/ruby/3.0.0/gems/msgpack-1.5.1/ext/msgpack
+make DESTDIR\=
+compiling buffer.c
+compiling buffer_class.c
+compiling extension_value_class.c
+compiling factory_class.c
+compiling packer.c
+compiling packer_class.c
+compiling packer_ext_registry.c
+compiling rbinit.c
+compiling rmem.c
+compiling unpacker.c
+compiling unpacker_class.c
+compiling unpacker_ext_registry.c
+linking shared-object msgpack/msgpack.bundle
+
+current directory: /Users/a0000/Desktop/myapp/vendor/bundle/ruby/3.0.0/gems/msgpack-1.5.1/ext/msgpack
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 msgpack.bundle ./.gem.20220424-95193-d41chr/msgpack
