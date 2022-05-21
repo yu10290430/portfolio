@@ -5,6 +5,5 @@ FactoryBot.define do
     password {"password"}
     password_confirmation {"password"}
     introduction {"testuser_introduction"}
-    avatar { fixture_file_upload("spec/fixtures/files/Certificate-CSS基礎.png") }
   end
 end

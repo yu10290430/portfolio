@@ -9,5 +9,6 @@ FactoryBot.define do
     date { "2022-04-25" }
     tide { "大潮" }
     result { "3" }
+    created_at { "2022-04-25" }
   end
 end

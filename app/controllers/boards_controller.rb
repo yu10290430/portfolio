@@ -30,7 +30,7 @@ class BoardsController < ApplicationController
   def update
     @board = Board.find(params[:id])
     if @board.update(board_params)
-      redirect_to user_path(@user), notice: "投稿内容を更新しました"
+      redirect_to board_path(@board), notice: "投稿内容を更新しました"
     else
       flash.now[:alert]="更新に失敗しました。入力内容に不備がないかご確認ください。"
       render "edit"

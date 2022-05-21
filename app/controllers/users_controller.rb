@@ -14,6 +14,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to user_path(@user), notice: "ユーザー情報を更新しました"
     else
+      flash.now[:alert]="更新に失敗しました。入力内容に不備がないかご確認ください。"
       render "edit"
     end
   end
@@ -21,7 +22,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    redirect_to root_path, notice: "ユーザーを削除しました"
+    redirect_to root_path, notice: "アカウントを削除しました"
   end
 
   def favorites
@@ -38,14 +39,12 @@ class UsersController < ApplicationController
 
   def followings
     @user = User.find(params[:id])
-    followings = Relationship.where(user_id: @user.id).pluck(:follow_id)
-    @following_users = User.find(followings)
+    @following_users = @user.followings
   end
 
   def followers
     @user = User.find(params[:id])
-    followers = Relationship.where(follow_id: @user.id).pluck(:user_id)
-    @follower_users = User.find(followers)
+    @follower_users = @user.followers
   end
 
   private
