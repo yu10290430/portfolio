@@ -1,11 +1,5 @@
-
 <div class="card">
   <div class="card-body">
-    <h4 class="card-title">
-      <%= link_to board_path(board.id) do %>
-        <%= board.title %>
-      <% end %>
-    </h4>
     <ul class="list-inline">
       <%= link_to user_path(board.user_id) do %>
         <li class="list-inline-item">
@@ -19,17 +13,32 @@
         <%= l board.created_at, format: :long %>
       </li>
     </ul>
-    <div class="board_body">
-      <div class="text_area">
-        <p class="card-text"><%= board.body %></p>
-      </div>
-      <div class="board_image">
-        <% board.images.each do |image| %>
-          <%= image_tag url_for(image), size: '150x150' %>
-        <% end %>
-      </div>
-      <div class="address">
-        <p>釣り場： <%= board.address %> </p>
+    <div class="row board_contents">
+      <% if board.images.attached? %>
+        <div class="left_image">
+          <%= image_tag url_for(board.images[0]), size: '150x150' %>
+        </div>
+      <% end %>
+      <div class="right_content">
+        <h5 class="card-title">
+          <%= link_to board_path(board.id) do %>
+           【<%= board.title %>】
+          <% end %>
+        </h5>
+        <p class="card-text">
+          <%= truncate(board.body, length: 20) do %>
+            <%= link_to "続きはこちら", board_path(board.id) %>
+          <% end %>
+        </p>
+        <div class="row">
+          <p class="card-address">
+            <i class="fa-solid fa-location-dot"></i>
+            <%= board.address %>
+          </p>
+          <% if user_signed_in? %>
+            <%= render "shared/favorites", board: board %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

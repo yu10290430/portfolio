@@ -12,7 +12,7 @@
   <table class="show_table">
     <tr>
       <th>天気</th>
-      <td><%= @board.weather%></td>
+      <td><%= @board.weather %></td>
     </tr>
     <tr>
       <th>釣種</th>
@@ -38,13 +38,6 @@
         <%= @board.address %>
         <div class="gmap">
           <div id='show_map' class='map'></div>
-          <style>
-            #show_map {
-              height: 200px;
-              width: 90%;
-            }
-          </style>
-          <%= render"shared/gmap" %>
         </div>
       </td>
     </tr>
@@ -54,10 +47,11 @@
     </tr>
   </table>
   <div class="content_box">
-    <%= render "favorites", board: @board %>
-    <%= link_to "投稿一覧に戻る", boards_search_path %></br>
+    <%= render "shared/favorites", board: @board %>
+    <%= link_to "投稿一覧に戻る", search_boards_path %></br>
     <% if @board.user_id == current_user.id %>
       <%= link_to '編集する', edit_board_path(@board.id), {class: "round_btn_grey"} %>
     <% end %>
   </div>
 </main>
+<%= render"shared/gmap" %>

@@ -1,9 +1,8 @@
 require 'rails_helper'
 
 RSpec.feature "Users", type: :feature do
-  given(:avatar) { file_upload("spec/fixtures/files/Certificate-CSS基礎.png","image/png") }
-  given(:user) { create(:user, avatar: avatar) }
-  given(:other_users) { create_list(:user, 3, avatar: avatar) }
+  given(:user) { create(:user) }
+  given(:other_users) { create_list(:user, 3) }
   given!(:board) { create(:board, user: user) }
   given(:board2) { create(:board, user: other_users[0]) }
   given!(:favorite_board) { create(:favorite, user: user, board: board2) }
@@ -37,7 +36,6 @@ RSpec.feature "Users", type: :feature do
         expect{
           find('input[name="commit"]').click
         }.to change { User.count }.by(0)
-        expect(current_path).to eq new_user_registration_path
       end
 
       scenario "ログインページへのリンクが正常に機能していること" do
@@ -67,9 +65,10 @@ RSpec.feature "Users", type: :feature do
         expect(current_path).to eq new_user_registration_path
       end
 
-      scenario "パスワードを忘れた場合のリンクが正常に機能していること" do
-        click_on "パスワードを忘れた場合"
-        expect(current_path).to eq new_user_password_path
+      scenario "テストログイン機能が正常に動作していること" do
+        click_on "テストアカウントでログイン"
+        expect(current_path).to eq root_path
+        expect(page).to have_content "テストアカウントでログインしました"
       end
     end
   end
@@ -193,7 +192,7 @@ RSpec.feature "Users", type: :feature do
       scenario "アップデートに失敗したときの振る舞い" do
         fill_in("user_name", with: "")
         click_on "更新"
-        expect(page).to have_content "更新に失敗しました。入力内容に不備がないかご確認ください。"
+        expect(page).to have_content "更新に失敗しました。入力内容を再度ご確認ください。"
       end
 
       scenario "アカウント削除ボタンが正常に機能していること" do

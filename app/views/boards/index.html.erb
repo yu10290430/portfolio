@@ -8,7 +8,7 @@
         <p><i class="fa-solid fa-fish fa-lg "></i></p>
       </div>
       <div class="top_index_link">
-        <%= link_to "投稿一覧はこちら", boards_search_path, {class: "round_btn_grey"} %>
+        <%= link_to "投稿一覧はこちら", search_boards_path, {class: "round_btn_grey"} %>
       </div>
     </div>
   </div>
@@ -18,36 +18,30 @@
       <input type="button" value="検索" onclick="codeAddress()">
     </div>
     <div id='map' class='map'></div>
-    <style>
-    #map {
-      height: 500px;
-      width: 100%;
-    }
-    </style>
-    <%= render"shared/gmap" %>
   </div>
   <div class='row'>
-    <div class="new_post col-lg-4 col-md-12 col-xs-12">
+    <div class="new_post col-lg-5 col-md-12 col-xs-12">
       <% if user_signed_in? %>
         <%= render "new_post", board: @board %>
       <% end %>
     </div>
-    <div class="new_arrival col-lg-8 col-md-12 col-xs-12">
-      <div class='title'>
-        <h3>新着情報</h3>
-      </div>
-      <div class="col-12">
-        <div class="row">
-          <% if @boards.present? %>
-            <%= render partial: "board", collection: @boards %>
-          <% else %>
-            <p><%= t('投稿がありません') %></p>
-          <% end %>
-        </div>
+    <div class="ranking col-lg-6 col-md-12 col-xs-12">
+      <%= render "ranking", {ranks: @ranks, user_ranks: @user_ranks} %>
+    </div>
+  </div>
+  <div class="new_arrival">
+    <div class='title'>
+      <h3>新着情報</h3>
+    </div>
+    <div class="col-12">
+      <div class="row">
+        <% if @boards.present? %>
+          <%= render partial: "board", collection: @boards %>
+        <% else %>
+          <p><%= t('投稿がありません') %></p>
+        <% end %>
       </div>
     </div>
   </div>
-  <div class="ranking">
-    <%= render "ranking", {ranks: @ranks, user_ranks: @user_ranks} %>
-  </div>
 </div>
+<%= render"shared/gmap" %>

@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to user_path(@user), notice: "ユーザー情報を更新しました"
     else
-      flash.now[:alert]="更新に失敗しました。入力内容に不備がないかご確認ください。"
+      flash.now[:alert] = "更新に失敗しました。入力内容を再度ご確認ください。"
       render "edit"
     end
   end
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 
   def favorites
     @user = User.find(params[:id])
-    favorites= Favorite.where(user_id: @user.id).pluck(:board_id)
+    favorites = Favorite.where(user_id: @user.id).pluck(:board_id)
     @favorite_boards = Board.find(favorites)
   end
 
@@ -52,5 +52,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :avatar, :introduction)
   end
-
 end

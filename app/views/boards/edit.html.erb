@@ -1,6 +1,7 @@
 <main class="main_center">
   <h2>投稿編集</h2>
   <%= form_with model:@board, url: board_path(@board), local: true do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
     <table class="edit_table">
       <tr>
         <th><%= f.label :title, "タイトル" %></th>
@@ -21,7 +22,7 @@
         <td><%= f.text_field :kind %></td>
       </tr>
       <tr>
-        <th><%= f.label :date ,"日付" %></th>
+        <th><%= f.label :date ,"釣行日" %></th>
         <td><%= f.date_field :date %></td>
       </tr>
       <tr>
@@ -45,7 +46,7 @@
     </table>
     <div>
       <ul>
-      <li><%= f.submit "更新する", class: "btn_blue" %></li>
+        <li><%= f.submit "更新する", class: "btn_blue" %></li>
       </ul>
     </div>
   <% end %>

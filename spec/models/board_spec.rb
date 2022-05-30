@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Board, type: :model do
-  let!(:avatar) { file_upload("spec/fixtures/files/Certificate-CSS基礎.png","image/png") }
-  let(:user) { create(:user, avatar: avatar) }
-  let!(:other_user) { create(:user, avatar: avatar) }
+  let!(:image) { file_upload("spec/fixtures/files/Certificate-CSS基礎.png","image/png") }
+  let(:user) { create(:user, avatar: image) }
+  let!(:other_user) { create(:user, avatar: image) }
   let!(:board) { create(:board, user: user) }
   let!(:boards) { create_list(:board, 3, user: user) }
   let!(:favorited_board) {create(:favorite, user: other_user, board: board)}
@@ -60,6 +60,10 @@ RSpec.describe Board, type: :model do
     it "テキストが200字以下でない場合登録出来ないこと" do
       over_text = "b" * 201
       expect(build(:board, body: over_text)).to_not be_valid
+    end
+
+    it "画像が４枚を超える場合登録出来ない" do
+      expect(build(:board, images: [image, image, image, image, image])).to_not be_valid
     end
   end
 

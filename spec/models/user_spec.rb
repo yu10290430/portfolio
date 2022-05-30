@@ -32,10 +32,6 @@ RSpec.describe User, type: :model do
       expect(build(:user, name: "")).to_not be_valid
     end
 
-    it "画像が空の場合登録できない" do
-      expect(build(:user)).to_not be_valid
-    end
-
     it "password_confirmationとpasswordが異なる場合保存できない" do
       expect(build(:user, password: "password", password_confirmation: "passward")).to_not be_valid
     end

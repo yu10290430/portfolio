@@ -13,5 +13,6 @@
   <% end %>
   <div class="link_box">
     <%= render "devise/shared/links", {class: "round_btn_grey"} %>
+    <%= link_to 'テストアカウントでログイン', users_guest_sign_in_path, method: :post, class: "round_btn_orange" %>
   </div>
 </main>

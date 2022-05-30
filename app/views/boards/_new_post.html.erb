@@ -2,6 +2,7 @@
   <h5>新規投稿</h5>
 </div>
 <%= form_with model: board do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
   <table>
     <tr>
       <th><%= f.label :title, "タイトル" %></th>
@@ -22,7 +23,7 @@
       <td><%= f.text_field :kind, placeholder: "(例)エギング、ウキ釣り等" %></td>
     </tr>
     <tr>
-      <th><%= f.label :date ,"日付" %></th>
+      <th><%= f.label :date ,"釣行日" %></th>
       <td><%= f.date_field :date %></td>
     </tr>
     <tr>
@@ -40,7 +41,7 @@
       <td><%= f.text_area :body, placeholder: "200字以内" %></td>
     </tr>
     <tr>
-      <th><%= f.label :images ,"画像" %></th>
+      <th><%= f.label :images ,"画像(4枚まで)" %></th>
       <td><%= f.file_field :images, multiple: true %></td>
     </tr>
   </table>

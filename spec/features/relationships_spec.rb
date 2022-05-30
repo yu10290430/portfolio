@@ -1,10 +1,9 @@
 require 'rails_helper'
 
 RSpec.feature "Relationship", type: :feature do
-  given(:avatar) { file_upload("spec/fixtures/files/Certificate-CSS基礎.png","image/png") }
-  given(:user) { create(:user, avatar: avatar) }
-  given(:user2) { create(:user, avatar: avatar) }
-  given(:user3) { create(:user, avatar: avatar) }
+  given(:user) { create(:user) }
+  given(:user2) { create(:user) }
+  given(:user3) { create(:user) }
   given!(:relationship) { create(:relationship, user: user, follow: user2) }
 
   describe "#create" do

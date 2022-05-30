@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Fishing sharing</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Fishing Share</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=devise-width, initial-scale=1.0" />
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application' %>
     <script src="https://kit.fontawesome.com/af8ca5731c.js" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
 
   <body>
     <%= render 'layouts/header' %>
     <%= render 'layouts/message' %>
     <%= yield %>
+    <div class="footer_link">
+      <%= link_to "FishingShareとは？", explanation_boards_path %>
+    </div>
     <%= render 'layouts/footer' %>
   </body>
 </html>

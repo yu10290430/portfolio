@@ -20,6 +20,14 @@ body{
   border-radius: 30px;
   text-decoration: none;
 }
+.round_btn_orange{
+  border: none;
+  color: white;
+  background-color: #ffa500;
+  padding: 8px 35px;
+  border-radius: 30px;
+  text-decoration: none;
+}
 .btn_blue{
   border: none;
   color: white;
@@ -56,19 +64,39 @@ margin-left: 50px;
   text-align: center;
   line-height: 40px;
   color: white;
-
 }
 .notice {
   background-color: #87cefa;
 }
-.aleat {
-  color: black;
+.alert {
+  background-color: red;
+}
+.error_message {
+  background-color: orange;
+  vertical-align: middle;
+  margin: 10px auto;
+  padding: 10px 0;
+  color: white;
 }
 a {
   color: black;
 }
 a:hover {
   opacity: 60%;
+}
+.footer_link{
+  border-top: solid 1px #dcdcdc;
+  text-align: right;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  a{
+    color: #a9a9a9;
+    font-size: 12px;
+    margin-right: 80px;
+  }
+}
+.pagination {
+  margin-top: 30px;
 }
 /* header */
 header{
@@ -96,7 +124,11 @@ nav{
     margin-right: 10px;
   }
 }
-/*ハンバーガーメニュー*/
+.hamburger_menu{
+  img{
+    margin-top: 30px;
+  }
+}
 .menu_btn {
   position: absolute;
   top: 10px;
@@ -164,12 +196,12 @@ nav{
 #menu_btn_check:checked ~ .menu_content {
   left: 0;
 }
-@media only screen and (min-width:769px) {
+@media only screen and (min-width:1001px) {
   .hamburger_menu{
     display: none;
   }
 }
-@media screen and (max-width:768px) {
+@media screen and (max-width:1000px) {
   .header_logo h2 a {
     font-size: 25px;
   }
@@ -182,7 +214,6 @@ footer{
   background-color: black;
   height: 150px;
   border-radius: 10px;
-  margin-top: 50px;
   p {
     margin-left: auto;
     margin-right: auto;
@@ -260,6 +291,13 @@ textarea#user_introduction {
   width: 350px;
   height: 180px;
 }
+@media only screen and (min-width: 769px) {
+  .main_center{
+    .error_message{
+      width: 600px;
+    }
+  }
+}
 @media screen and (max-width:768px) {
   .user_table {
     width: 90%;
@@ -309,29 +347,25 @@ textarea#user_introduction {
 .card-icon i {
   margin-left: 140px;
 }
-.fa-map-pin{
-  position: absolute;
-  top: -2px;
-}
 .new_arrival{
-  background-color: #d2b48c;
-  border: 30px solid #a0522d ;
-  border-radius: 10px;
-  margin-top: 10px;
+  margin-top: 30px;
   .title {
-    color: #fffaf0;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin-top: 20px;
+    margin-left: 20px;
   }
+}
+.left_image {
+  margin-right: 15px;
 }
 .ranking {
   margin: 10px auto;
   padding: 50px 20px;
-  width: 70%;
   text-align: center;
   line-height: 40px;
   background-color: white;
-  border: solid 30px #800000 ;
+  border: solid 20px #800000;
+  border-radius: 15px;
 }
 .ranking_title {
   display: flex;
@@ -377,13 +411,27 @@ textarea#user_introduction {
   text-align: right;
   margin: 20px 10px;
 }
+#map {
+  height: 500px;
+  width: 100%;
+}
 input#keyword {
   width: 300px;
+}
+p.card-address {
+  margin: 0 15px;
+}
+.board_contents{
+  margin: 0 7px;
 }
 @media screen and (max-width:768px) {
   .main_continuer{
     margin: 80px auto;
     width: 90%;
+  }
+  .right_content {
+    margin-top: 10px;
+    font-size: 13px;
   }
 }
 /*投稿詳細ページ*/
@@ -413,7 +461,10 @@ select {
   width: 300px;
   height: 30px;
 }
-
+#show_map {
+  height: 200px;
+  width: 90%;
+}
 .content_box {
   line-height: 35px;
 }
@@ -487,4 +538,29 @@ select {
 }
 li {
   list-style: none;
+}
+/*サイト説明ページ*/
+.explanation {
+  h4 {
+    margin-bottom: 30px;
+  }
+  img {
+    width: 350px;
+  }
+}
+.sign_up_link {
+  margin-top: 60px;
+  .round_btn_orange {
+    padding: 10px 100px;
+  }
+}
+@media screen and (max-width:768px) {
+  .explanation {
+    p {
+      font-size: 13px;
+    }
+    img {
+      width: 250px;
+    }
+  }
 }

@@ -1,9 +1,8 @@
 require 'rails_helper'
 
 RSpec.feature "Boards", type: :feature do
-  given(:avatar) { file_upload("spec/fixtures/files/Certificate-CSS基礎.png","image/png") }
-  given(:user) { create(:user, avatar: avatar) }
-  given(:other_users) { create_list(:user, 3, avatar: avatar) }
+  given(:user) { create(:user) }
+  given(:other_users) { create_list(:user, 3) }
   given!(:board) { create(:board, user: user) }
   given!(:board2) { create(:board, user: other_users[0]) }
   given!(:board3) { create(:board, user: other_users[1]) }
@@ -39,7 +38,7 @@ RSpec.feature "Boards", type: :feature do
 
     scenario "投稿一覧へのリンクが正常に機能していること" do
       click_on "投稿一覧はこちら"
-      expect(current_path).to eq boards_search_path
+      expect(current_path).to eq search_boards_path
     end
 
     scenario "新規投稿機能が正常に機能していること" do
@@ -54,7 +53,7 @@ RSpec.feature "Boards", type: :feature do
       expect{
         find('input[name="commit"]').click
       }.to change { Board.count }.by(1)
-      expect(current_path).to eq boards_search_path
+      expect(current_path).to eq search_boards_path
       expect(page).to have_content "投稿できました"
     end
 
@@ -63,7 +62,7 @@ RSpec.feature "Boards", type: :feature do
       expect{
         find('input[name="commit"]').click
       }.to change { Board.count }.by(0)
-      expect(current_path).to eq root_path
+      expect(current_path).to eq boards_path
       expect(page).to have_content "投稿できませんでした。入力内容をご確認ください"
     end
 
@@ -127,7 +126,7 @@ RSpec.feature "Boards", type: :feature do
 
       scenario "メインページへのリンクが正常に機能していること" do
         click_on "投稿一覧に戻る"
-        expect(current_path).to eq boards_search_path
+        expect(current_path).to eq search_boards_path
       end
 
       scenario "編集ページへのリンクが正常に機能していること" do
@@ -191,7 +190,7 @@ RSpec.feature "Boards", type: :feature do
     scenario "アップデートに失敗したときの振る舞い" do
       fill_in("board_title", with: "")
       click_on "更新する"
-      expect(page).to have_content "更新に失敗しました。入力内容に不備がないかご確認ください。"
+      expect(page).to have_content "更新に失敗しました。入力内容を再度ご確認ください。"
     end
 
     scenario "投稿詳細ページへのリンクが正常に機能していること" do
@@ -216,7 +215,7 @@ RSpec.feature "Boards", type: :feature do
 
   describe "#search" do
     background do
-      visit boards_search_path
+      visit search_boards_path
     end
 
     scenario "レスポンスのステータスが正しいこと" do

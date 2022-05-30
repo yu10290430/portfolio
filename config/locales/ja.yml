@@ -1,6 +1,24 @@
 ---
 ja:
+  views:
+    pagination:
+      first: "&laquo; 最初"
+      last: "最後 &raquo;"
+      previous: "&lsaquo; 前"
+      next: "次 &rsaquo;"
+      truncate: "..."
   activerecord:
+    attributes:
+      board:
+        title: タイトル
+        address: 釣り場
+        weather: 天気
+        kind: 釣種
+        date: 釣行日
+        tide: 潮
+        result: 釣果
+        body: テキスト
+        images: 画像
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
