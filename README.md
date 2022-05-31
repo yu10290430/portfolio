@@ -79,5 +79,4 @@
 ・RSpec
 
   　⚪︎単体テスト(model)
-   
-    ⚪︎統合テスト(feature)
+   ⚪︎統合テスト(feature)
