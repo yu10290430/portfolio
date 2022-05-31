@@ -19,7 +19,6 @@ class BoardsController < ApplicationController
       redirect_to search_boards_path, notice: "投稿できました"
     else
       flash.now[:alert] = "投稿できませんでした。入力内容をご確認ください"
-      # redirect_back(fallback_location: root_path)
       render "index"
     end
   end
@@ -55,7 +54,8 @@ class BoardsController < ApplicationController
   private
 
   def board_params
-    params.require(:board).permit(:title, :address, :weather, :kind, :date, :tide, :result, :body, images: []).
-      merge(user_id: current_user.id, latitude: 35.681236, longitude: 139.767125)
+    { user_id: current_user.id, latitude: 35.681236, longitude: 139.767125 }.
+      merge(params.require(:board).
+        permit(:title, :address, :weather, :kind, :date, :tide, :result, :body, :latitude, :longitude, images: []))
   end
 end
