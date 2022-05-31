@@ -1,4 +1,5 @@
 １.Fishing Shareについて
+
   "Fishing Share"は、釣り情報を共有するサービスです。
   
   ⚪︎作成した理由
@@ -19,27 +20,38 @@
 ２.使用技術
 
 ・Ruby 3.0.3
+
 ・Ruby on Rails 6.1.5
+
 ・MySQL 8.0
+
 ・Docker/Docker-compose
+
 ・Heroku
+
 ・AWS S3
+
 ・RSpec
+
 ・Google Maps API
 
 3.テーブル
 
   ⚪︎boards
+  
     投稿に関するデータを保存
     
   ⚪︎users
+  
     ユーザーデータを保存
     
   ⚪︎favorites
+  
     boards,usersの中間テーブル。いいね機能に関するデータを保存しており、boards,usersの各テーブルと「一対多」(board対favorites)(user対favorites)
     でアソシエーションしています。
     
   ⚪︎relationships
+  
     usersの中間テーブル。フォロー機能に関するデータを保存しており、「多対多」(user対user)と「一対多」(user対relationships)の形でアソシエーションしています。
     user_id(フォローする側のuserデータ),follow_id(フォローされた側のuserデータ)として保存されています。
 
@@ -48,18 +60,24 @@
 ・ユーザー登録、ログイン機能(devise)
 
 ・投稿機能
+
 　　⚪︎画像投稿（ActiveStorage)
 　　⚪︎住所に基づく位置情報保存（geocoder)
   
 ・いいね機能
+
 　　⚪︎ランキング機能（投稿に対するいいね数）
   
 ・フォロー機能
+
 　　⚪︎ランキング機能（フォロワー数）
+  
 ・検索機能
 
 ・ページネーション機能(kaminari)
 
 ・RSpec
+
   　⚪︎単体テスト(model)
+   
     ⚪︎統合テスト(feature)
