@@ -21,7 +21,7 @@
 
 ・Ruby 3.0.3
 
-・Ruby on Rails 6.1.5
+・Ruby on Rails 6.1.6
 
 ・MySQL 8.0
 
