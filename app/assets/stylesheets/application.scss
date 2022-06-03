@@ -371,7 +371,8 @@ textarea#user_introduction {
   display: flex;
   justify-content: center;
   margin-bottom: 40px;
-  font-family: cursive;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  gap: 10px 10px;
 }
 .rank_number {
   display: flex;
@@ -425,6 +426,9 @@ p.card-address {
   margin: 0 7px;
 }
 @media screen and (max-width:768px) {
+  input#keyword {
+    width: 250px;
+  }
   .main_continuer{
     margin: 80px auto;
     width: 90%;
@@ -556,6 +560,8 @@ li {
 }
 @media screen and (max-width:768px) {
   .explanation {
+    width: 90%;
+    margin: 0 auto;
     p {
       font-size: 13px;
     }
