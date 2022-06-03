@@ -1,0 +1,54 @@
+<div class="ranking_title ">
+  <h2>RANKING</h2>
+  <p><i class="fa-solid fa-crown fa-2x" style="color: gold;"></i></p>
+</div>
+<div class="rank_body">
+  <div class= "row">
+    <div class="user_ranks col-lg-6 col-mb-6 col-xs-12">
+      <div class="rank_title">
+        <h4>フォロワー数部門</h4>
+      </div>
+      <% user_ranks.each.with_index(1) do |user,i| %>
+        <div class="rank_number">
+          <p>第<%= i %>位</p>
+          <div class="medal">
+            <% case i %>
+            <% when 1 %>
+              <p><i class="fa-solid fa-medal" style="color: gold;"></i></p>
+            <% when 2 %>
+              <p><i class="fa-solid fa-medal" style="color: silver;"></i></p>
+            <% else %>
+              <p><i class="fa-solid fa-medal" style="color: peru;"></i></p>
+            <% end %>
+          </div>
+        </div>
+        <%= link_to user_path(user.id) do %>
+          <%= user.name %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="board_ranks col-lg-6 col-mb-6 col-xs-12">
+      <div class="rank_title">
+        <h4>投稿いいね獲得部門</h4>
+      </div>
+      <% ranks.each.with_index(1) do |board,i| %>
+        <div class="rank_number">
+          <p>第<%= i %>位</p>
+          <div class="medal">
+            <% case i %>
+            <% when 1 %>
+              <p><i class="fa-solid fa-medal" style="color: gold;"></i></p>
+            <% when 2 %>
+              <p><i class="fa-solid fa-medal" style="color: silver;"></i></p>
+            <% else %>
+              <p><i class="fa-solid fa-medal" style="color: peru;"></i></p>
+            <% end %>
+          </div>
+        </div>
+        <%= link_to board_path(board.id) do %>
+          <%= board.title %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

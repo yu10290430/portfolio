@@ -1,0 +1,10 @@
+<main class="main_continuer">
+  <form class="search_form">
+    <%= form_with url: search_boards_path, local: true, method: :get do |f| %>
+      <%= f.text_field :keyword, placeholder: "キーワード" %>
+      <%= f.submit "検索" %>
+    <% end %>
+  </form>
+  <%= render partial: "shared/related_posts", collection: @boards, as: "board" %>
+  <%= paginate @boards %>
+</main>

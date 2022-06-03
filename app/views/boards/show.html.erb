@@ -1,0 +1,57 @@
+<main class='main_center'>
+  <div class="show_box">
+    <div class="board_show_title">
+      <h2>【<%= @board.title %>】</h2>
+    </div>
+    <div class="board_image">
+      <% @board.images.each do |image| %>
+        <%= image_tag url_for(image), size: '300x300' %>
+      <% end %>
+    </div>
+  </div>
+  <table class="show_table">
+    <tr>
+      <th>天気</th>
+      <td><%= @board.weather %></td>
+    </tr>
+    <tr>
+      <th>釣種</th>
+      <td><%= @board.kind %></td>
+    </tr>
+    <tr>
+      <th>日付</th>
+      <td><%= @board.date %></td>
+    </tr>
+    <tr>
+      <th>潮</th>
+      <td><%= @board.tide %></td>
+    </tr>
+    <tr>
+      <th>釣果</th>
+      <td>
+        <p><%= @board.result %>匹</p>
+      </td>
+    </tr>
+    <tr>
+      <th>釣り場</th>
+      <td>
+        <%= @board.address %>
+        <div class="gmap">
+          <div id='show_map' class='map'></div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th>内容</th>
+      <td class="show_textarea"><%= @board.body %></td>
+    </tr>
+  </table>
+  <div class="content_box">
+    <%= render "shared/favorites", board: @board %>
+    <%= link_to "投稿一覧に戻る", search_boards_path %></br>
+    <% if @board.user_id == current_user.id %>
+      <%= link_to '編集する', edit_board_path(@board.id), {class: "round_btn_grey"} %>
+    <% end %>
+  </div>
+</main>
+<%= render"shared/gmap" %>

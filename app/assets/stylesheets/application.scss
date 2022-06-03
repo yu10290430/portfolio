@@ -1,0 +1,572 @@
+@import "bootstrap";
+/*共通*/
+body{
+  margin: 0;
+  background-color: #f5f5f5;
+}
+.main_center {
+  text-align: center;
+  margin: 70px auto;
+}
+.main_continuer {
+  margin: 100px auto;
+  width: 70%;
+}
+.round_btn_grey{
+  border: none;
+  color: white;
+  background-color: #d3d3d3;
+  padding: 8px 35px;
+  border-radius: 30px;
+  text-decoration: none;
+}
+.round_btn_orange{
+  border: none;
+  color: white;
+  background-color: #ffa500;
+  padding: 8px 35px;
+  border-radius: 30px;
+  text-decoration: none;
+}
+.btn_blue{
+  border: none;
+  color: white;
+  background-color: #00bfff;
+  padding: 8px 35px;
+  border-radius: 40px;
+  text-decoration: none;
+  margin-top: 10px;
+}
+.btn_red{
+  border: none;
+  color: white;
+  background-color: red;
+  padding: 8px 35px;
+  border-radius: 40px;
+  text-decoration: none;
+  margin-top: 10px;
+}
+.gmap_seach{
+margin-left: 50px;
+}
+.map {
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.icon img{
+  border-radius: 100px;
+}
+.message{
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  line-height: 40px;
+  color: white;
+}
+.notice {
+  background-color: #87cefa;
+}
+.alert {
+  background-color: red;
+}
+.error_message {
+  background-color: orange;
+  vertical-align: middle;
+  margin: 10px auto;
+  padding: 10px 0;
+  color: white;
+}
+a {
+  color: black;
+}
+a:hover {
+  opacity: 60%;
+}
+.footer_link{
+  border-top: solid 1px #dcdcdc;
+  text-align: right;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  a{
+    color: #a9a9a9;
+    font-size: 12px;
+    margin-right: 80px;
+  }
+}
+.pagination {
+  margin-top: 30px;
+}
+/* header */
+header{
+  background-color: black;
+  height: 80px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding : 0 40px;
+}
+.header_logo h2 a {
+  color: white;
+  font-family: cursive;
+  text-decoration: none;
+  line-height: 80px;
+}
+nav{
+  line-height: 80px;
+  a {
+    color: #ffffff;
+    margin-left: 20px;
+  }
+  img {
+    border-radius: 100px;
+    margin-right: 10px;
+  }
+}
+.hamburger_menu{
+  img{
+    margin-top: 30px;
+  }
+}
+.menu_btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  height: 60px;
+  width: 60px;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  span, span:before, span:after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 25px;
+    border-radius: 3px;
+    background-color: #ffffff;
+    position: absolute;
+  }
+  span:before {
+    bottom: 8px;
+  }
+  span:after {
+    top: 8px;
+  }
+}
+#menu_btn_check:checked ~ .menu_btn span {
+  background-color: rgba(255, 255, 255, 0);
+}
+#menu_btn_check:checked ~ .menu_btn span::before {
+  bottom: 0;
+  transform: rotate(45deg);
+}
+#menu_btn_check:checked ~ .menu_btn span::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+#menu_btn_check {
+  display: none;
+}
+.menu_content {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 80;
+  left: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  transition: all 0.5s;
+  ul{
+    list-style: none;
+    margin-top: 50px;
+    text-align: center;
+  }
+  a {
+    color: white;
+    font-size: 20px;
+    line-height: 60px;
+  }
+  img {
+    border-radius: 100%;
+    margin-bottom: 20px;
+  }
+}
+#menu_btn_check:checked ~ .menu_content {
+  left: 0;
+}
+@media only screen and (min-width:1001px) {
+  .hamburger_menu{
+    display: none;
+  }
+}
+@media screen and (max-width:1000px) {
+  .header_logo h2 a {
+    font-size: 25px;
+  }
+  nav{
+    display: none;
+  }
+}
+/* footer */
+footer{
+  background-color: black;
+  height: 150px;
+  border-radius: 10px;
+  p {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    line-height: 150px;
+    color: white;
+    font-size: 4px;
+  }
+}
+/* device page */
+.field{
+  line-height: 30px;
+  input {
+    width: 350px;
+    height: 40px;
+    margin-bottom: 10px;
+  }
+}
+.actions input{
+  margin: 10px;
+  width: 100px;
+  height: 30px;
+  color: white;
+  background-color: #00bfff;
+  border: none;
+  border-radius: 3px;
+}
+.example{
+  margin-bottom: 8px;
+}
+a.password_link{
+  color: black;
+  text-decoration: none;
+  margin-top: 10px;
+}
+span.mark{
+  background-color: red;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+/*ユーザー詳細ページ*/
+.profile {
+  justify-content: center;
+}
+.main_center .user_img {
+  text-align: center;
+}
+.icon {
+  margin: 30px 15px;
+}
+.user_table {
+  width: 450px;
+  tr {
+    border: solid 1px #dcdcdc;
+    background-color: aliceblue;
+  }
+  th {
+    text-align: center;
+    padding: 30px;
+    width: 180px;
+  }
+}
+/*ユーザー編集*/
+.link_box{
+  line-height: 50px;
+}
+.btn_box {
+  margin-top: 20px;
+  text-align: center;
+  width: 250px;
+}
+textarea#user_introduction {
+  width: 350px;
+  height: 180px;
+}
+@media only screen and (min-width: 769px) {
+  .main_center{
+    .error_message{
+      width: 600px;
+    }
+  }
+}
+@media screen and (max-width:768px) {
+  .user_table {
+    width: 90%;
+    font-size: 15px;
+    margin: 0 auto;
+  }
+  .btn_box {
+    width: 100%;
+  }
+}
+/*メインページ*/
+.top_img{
+  background-image: url("https://nanamiyuki.com/wp-content/uploads/2021/01/%E6%B5%B71.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  .card{
+    width: 350px;
+    height: 200px;
+    position: absolute;
+    top: 250px;
+    left: 100px;
+    text-align: center;
+    padding-top: 40px;
+  }
+}
+.new_post {
+  margin: 10px auto;
+  text-align: center;
+  table {
+    margin: 20px auto ;
+  }
+  input {
+    width: 300px;
+  }
+  textarea {
+    width: 300px;
+    height: 200px;
+  }
+  li {
+    list-style: none;
+  }
+}
+.card{
+  border-radius: 10px;
+}
+.card-icon i {
+  margin-left: 140px;
+}
+.new_arrival{
+  margin-top: 30px;
+  .title {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+}
+.left_image {
+  margin-right: 15px;
+}
+.ranking {
+  margin: 10px auto;
+  padding: 50px 20px;
+  text-align: center;
+  line-height: 40px;
+  background-color: white;
+  border: solid 20px #800000;
+  border-radius: 15px;
+}
+.ranking_title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  gap: 10px 10px;
+}
+.rank_number {
+  display: flex;
+  justify-content: center;
+}
+.gmap_seach {
+  text-align: right;
+  margin-top: 20px;
+  margin-right: 10px;
+}
+@media screen and (max-width:768px) {
+  .top_img{
+    height: 200px;
+    .card {
+      display: none;
+    }
+  }
+  .ranking {
+    width: 100%;
+    .board_ranks{
+      margin-top: 30px;
+    }
+  }
+}
+/*投稿一覧*/
+.main_continuer {
+  margin: 100px auto;
+  width: 50%;
+}
+.search_main card{
+  padding: 50px;
+}
+.board_body {
+  line-height: 50px;
+}
+.search_form{
+  text-align: right;
+  margin: 20px 10px;
+}
+#map {
+  height: 500px;
+  width: 100%;
+}
+input#keyword {
+  width: 300px;
+}
+p.card-address {
+  margin: 0 15px;
+}
+.board_contents{
+  margin: 0 7px;
+}
+@media screen and (max-width:768px) {
+  input#keyword {
+    width: 250px;
+  }
+  .main_continuer{
+    margin: 80px auto;
+    width: 90%;
+  }
+  .right_content {
+    margin-top: 10px;
+    font-size: 13px;
+  }
+}
+/*投稿詳細ページ*/
+.show_table {
+  margin: 20px auto;
+  background-color: white;
+  border: solid 1px black;
+  width: 60%;
+  tr{
+    height: 50px;
+    border: solid 1px black;
+  }
+  th {
+    border-right: solid 1px #dcdcdc;
+    width: 60px;
+  }
+  td {
+    padding: 10px;
+
+  }
+}
+td.show_textarea {
+  text-align: left;
+  height: 200px;
+}
+select {
+  width: 300px;
+  height: 30px;
+}
+#show_map {
+  height: 200px;
+  width: 90%;
+}
+.content_box {
+  line-height: 35px;
+}
+@media screen and (max-width:768px) {
+  .board_show_title h2 {
+    font-size: 25px;
+    margin-bottom: 20px;
+  }
+  .board_image img {
+    width: 200px;
+    height: 180px;
+  }
+  .show_table {
+    width: 90%;
+  }
+}
+/*フォローページ*/
+.follow_main {
+  margin: 70px auto ;
+}
+.icon_box {
+  margin: 30px;
+}
+.left_side_bar {
+  text-align: center;
+}
+.list-inline-item {
+  margin-right: 50px;
+  margin-bottom: 20px;
+}
+.icon_container {
+  display: flex;
+  justify-content: center;
+}
+@media screen and (max-width:768px) {
+  .user_information{
+    h3{
+      font-size: 18px;
+    }
+    img{
+      border-radius: 100%;;
+      width: 120px;
+      height: 120px;
+    }
+  }
+  .user_list{
+    .card {
+      width: 90%;
+      margin: 0 auto;
+    }
+  }
+  .user_box {
+    input{
+      font-size: 13px;
+    }
+  }
+}
+/*投稿編集ページ*/
+.edit_table {
+  margin: 30px auto;
+  th {
+    width: 90px;
+  }
+  input {
+    width: 300px;
+  }
+  textarea {
+    width: 300px;
+    height: 200px;
+  }
+}
+li {
+  list-style: none;
+}
+/*サイト説明ページ*/
+.explanation {
+  h4 {
+    margin-bottom: 30px;
+  }
+  img {
+    width: 350px;
+  }
+}
+.sign_up_link {
+  margin-top: 60px;
+  .round_btn_orange {
+    padding: 10px 100px;
+  }
+}
+@media screen and (max-width:768px) {
+  .explanation {
+    width: 90%;
+    margin: 0 auto;
+    p {
+      font-size: 13px;
+    }
+    img {
+      width: 250px;
+    }
+  }
+}

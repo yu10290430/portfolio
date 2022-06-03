@@ -1,0 +1,22 @@
+current directory: /Users/a0000/Desktop/myapp/vendor/bundle/ruby/3.0.0/gems/websocket-driver-0.7.5/ext/websocket-driver
+/Users/a0000/.rbenv/versions/3.0.3/bin/ruby -I /Users/a0000/.rbenv/versions/3.0.3/lib/ruby/3.0.0 -r ./siteconf20220424-95193-5p6042.rb extconf.rb
+Ignoring bootsnap-1.11.1 because its extensions are not built. Try: gem pristine bootsnap --version 1.11.1
+Ignoring ffi-1.15.5 because its extensions are not built. Try: gem pristine ffi --version 1.15.5
+Ignoring msgpack-1.5.1 because its extensions are not built. Try: gem pristine msgpack --version 1.5.1
+Ignoring mysql2-0.5.3 because its extensions are not built. Try: gem pristine mysql2 --version 0.5.3
+Ignoring puma-5.6.4 because its extensions are not built. Try: gem pristine puma --version 5.6.4
+Ignoring sassc-2.4.0 because its extensions are not built. Try: gem pristine sassc --version 2.4.0
+Ignoring websocket-driver-0.7.5 because its extensions are not built. Try: gem pristine websocket-driver --version 0.7.5
+creating Makefile
+
+current directory: /Users/a0000/Desktop/myapp/vendor/bundle/ruby/3.0.0/gems/websocket-driver-0.7.5/ext/websocket-driver
+make DESTDIR\= clean
+
+current directory: /Users/a0000/Desktop/myapp/vendor/bundle/ruby/3.0.0/gems/websocket-driver-0.7.5/ext/websocket-driver
+make DESTDIR\=
+compiling websocket_mask.c
+linking shared-object websocket_mask.bundle
+
+current directory: /Users/a0000/Desktop/myapp/vendor/bundle/ruby/3.0.0/gems/websocket-driver-0.7.5/ext/websocket-driver
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 websocket_mask.bundle ./.gem.20220424-95193-s1r21n

@@ -1,0 +1,13 @@
+<div class="favorites">
+  <p class="caption">
+    <% if board.favorited_by?(current_user) %>
+      <%= link_to board_favorites_path(board), method: :delete, class: "favorite_btn" do %>
+        ♥<%= board.favorites.count %> いいね
+      <% end %>
+    <% else %>
+      <%= link_to board_favorites_path(board), method: :post, class: "favorite_btn" do %>
+        ♡<%= board.favorites.count %> いいね
+      <% end %>
+    <% end %>
+  </p>
+</div>

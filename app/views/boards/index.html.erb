@@ -1,0 +1,47 @@
+<div class="main_page">
+  <div class="top_img">
+    <div class="card top_box">
+      <div class="top_description">
+        <p>釣り人達の投稿を見てみよう<br>また、情報を共有しよう<p>
+      </div>
+      <div class="top_icon">
+        <p><i class="fa-solid fa-fish fa-lg "></i></p>
+      </div>
+      <div class="top_index_link">
+        <%= link_to "投稿一覧はこちら", search_boards_path, {class: "round_btn_grey"} %>
+      </div>
+    </div>
+  </div>
+  <div class="gmap">
+    <div class="gmap_seach">
+      <input id="address" type="textbox" value="東京都">
+      <input type="button" value="検索" onclick="codeAddress()">
+    </div>
+    <div id='map' class='map'></div>
+  </div>
+  <div class='row'>
+    <div class="new_post col-lg-5 col-md-12 col-xs-12">
+      <% if user_signed_in? %>
+        <%= render "new_post", board: @board %>
+      <% end %>
+    </div>
+    <div class="ranking col-lg-6 col-md-12 col-xs-12">
+      <%= render "ranking", {ranks: @ranks, user_ranks: @user_ranks} %>
+    </div>
+  </div>
+  <div class="new_arrival">
+    <div class='title'>
+      <h3>新着情報</h3>
+    </div>
+    <div class="col-12">
+      <div class="row">
+        <% if @boards.present? %>
+          <%= render partial: "board", collection: @boards %>
+        <% else %>
+          <p><%= t('投稿がありません') %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render"shared/gmap" %>

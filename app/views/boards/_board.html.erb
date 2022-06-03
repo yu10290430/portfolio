@@ -1,0 +1,44 @@
+<div class="col-sm-12 col-lg-4 mb-4">
+  <div id="board-id-<%= board.id %>">
+    <div class="card">
+      <div class="card-body">
+        <ul class="list-inline">
+          <%= link_to user_path(board.user_id) do %>
+            <li class="list-inline-item">
+              <%= image_tag url_for(board.user.avatar), size: '30x30' %>
+            </li>
+            <li class="list-inline-item">
+              <%= board.user.name %>
+            </li>
+          <% end %>
+          <li class="list-inline-item">
+            <%= l board.created_at, format: :short %>
+          </li>
+        </ul>
+        <div class="row">
+          <% if board.images.attached? %>
+            <div class="left_image">
+              <%= image_tag url_for(board.images[0]), size: '100x100' %>
+            </div>
+          <% end %>
+          <div class="right_content">
+            <h5 class="card-title">
+              <%= link_to board_path(board.id) do %>
+                【<%= board.title %>】
+              <% end %>
+            </h5>
+            <p class="card-text">
+              <%= truncate(board.body, length: 10) do %>
+                <%= link_to "続きはこちら", board_path(board.id) %>
+              <% end %>
+            </p>
+            <p class="card-address">
+              <i class="fa-solid fa-location-dot"></i>
+              <%= board.address %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
