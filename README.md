@@ -1,4 +1,4 @@
-１.Fishing Shareについて
+## Fishing Shareについて
 
   "Fishing Share"は、釣り情報を共有するサービスです。
   
@@ -17,7 +17,7 @@
     
    ![スクリーンショット 2022-05-31 11 46 23](https://user-images.githubusercontent.com/97491275/171082813-fa6f0d22-649c-4d67-a762-14d38e0c8ecd.png)
     
-２.使用技術
+## 使用技術
 
 ・Ruby 3.0.3
 
@@ -35,7 +35,7 @@
 
 ・Google Maps API
 
-3.テーブル
+## テーブル
 
   ⚪︎boards
   
@@ -60,9 +60,11 @@
     
     
     
-4.機能一覧
+## 機能一覧
 
 ・ユーザー登録、ログイン機能(devise)
+
+　　⚪︎テストアカウントログイン機能
 
 ・投稿機能
 
